@@ -75,36 +75,11 @@ export class JiraService {
     }
   }
 
-  async createIssue() {
+  async createIssue(payload:any) {
     try {
-          const descriptionADF = {
-        type: 'doc',
-        version: 1,
-        content: [
-            {
-                type: 'paragraph',
-                content: [
-                    {
-                        type: 'text',
-                        text: "descriptionText",
-                    },
-                ],
-            },
-        ],
-    };
+          
 
-    const payload = {
-        fields: {
-            project: {
-                key: 'MIN',
-            },
-            summary: "summary",
-            description: descriptionADF,
-            issuetype: {
-                name: "Task",
-            },
-        },
-    };
+    
       const response = await axios.post(`${this.baseUrl}/issue`, payload, {
         headers: {
           'Authorization': `Basic ${this.auth}`,

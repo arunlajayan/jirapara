@@ -44,8 +44,34 @@ async function createProject() {
 
 async function createIssue() {
     try {
-
-        const issue = await jira.createIssue();
+        const descriptionADF = {
+            type: 'doc',
+            version: 1,
+            content: [
+                {
+                    type: 'paragraph',
+                    content: [
+                        {
+                            type: 'text',
+                            text: "descriptionText",
+                        },
+                    ],
+                },
+            ],
+        };
+        const payload = {
+            fields: {
+                project: {
+                    key: 'MIN',
+                },
+                summary: "summary",
+                description: descriptionADF,
+                issuetype: {
+                    name: "Task",
+                },
+            },
+        };
+        const issue = await jira.createIssue(payload);
         console.log("Issue created:", issue.key);
 
     } catch (error: any) {

@@ -1,24 +1,22 @@
 {
-  "name": "jirapara",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "jira-mcp-project",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsx src/mcp/server.ts"
+    "build": "tsc",
+    "dev": "npx tsx orchestrator.ts",
+    "start": "npm run build &&npx tsx orchestrator.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "axios": "^1.15.0",
+    "axios": "^1.15.1",
     "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "google-spreadsheet": "^5.2.0",
-    "openai": "^6.34.0"
+    "openai": "^6.34.0",
+    "tsc": "^2.0.4"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
